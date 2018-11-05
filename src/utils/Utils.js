@@ -7,18 +7,37 @@
 const Utils = {};
 
 /**
+ * Checks if a string/number is comprised of repeated sequences of single digits.
+ *
+ * @param {String|Number} value
+ * @param {Number} length
+ * @return {Boolean}
+ */
+Utils.checkNumberRepetition = (value, length = 11) => {
+  if (typeof(value) === number) value = value.toString();
+
+  for (let i = 0; i < 10; i++) {
+    let regex = new RegExp(`^${i}{${length}}$`, "g");
+
+    if (value.match(regex) !== null) return false;
+  }
+
+  return true;
+};
+
+/**
  * Adds padded zeroes to a string or number.
  *
  * @param {String|Number} value
- * @param {Number} size
+ * @param {Number} length
  * @param {Boolean} to_right
  * @returns {String}
  */
-Utils.paddedZeroes = (value, size = 11, to_right = false) => {
+Utils.paddedZeroes = (value, length = 11, to_right = false) => {
   if (typeof(value) === number) value = value.toString();
 
-  if (value.length < (size || 11)) {
-    while (value.length < (size || 11)) {
+  if (value.length < (length || 11)) {
+    while (value.length < (length || 11)) {
       value = (!to_right) ? value + "0" : "0" + value;
     }
   }

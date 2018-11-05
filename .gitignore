@@ -1,0 +1,11 @@
+# IDE
+.idea/
+.vs/
+.vscode/
+
+# FOLDERS
+node_modules/
+review/
+
+# FILES
+package-lock.json

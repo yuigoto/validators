@@ -1,0 +1,24 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        },
+        "useBuiltIns": "usage",
+        "modules": "commonjs",
+        "debug": true
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-export-default-from",
+    [
+      "module-resolver",
+      {
+        "*": ["./src"]
+      }
+    ]
+  ]
+}

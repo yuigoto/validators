@@ -1,10 +1,15 @@
 {
   "name": "@yuigoto/validators",
-  "version": "1.0.0",
-  "description": "Simple validation library.",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Simple string validation library.",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "transpile": "babel src -d dist",
+    "prepublishOnly": "npm run transpile"
   },
   "repository": {
     "type": "git",
@@ -16,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/yuigoto/validators/issues"
   },
-  "homepage": "https://github.com/yuigoto/validators#readme"
+  "homepage": "https://github.com/yuigoto/validators#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-module-resolver": "^3.1.1"
+  }
 }

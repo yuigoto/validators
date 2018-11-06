@@ -22,6 +22,9 @@
     "url": "https://github.com/yuigoto/validators/issues"
   },
   "homepage": "https://github.com/yuigoto/validators#readme",
+  "dependencies": {
+    "core-js": "^2.5.7"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",

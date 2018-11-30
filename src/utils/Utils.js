@@ -14,7 +14,7 @@ const Utils = {};
  * @return {Boolean}
  */
 Utils.checkNumberRepetition = (value, length = 11) => {
-  if (typeof(value) === number) value = value.toString();
+  if (typeof(value) === "number") value = value.toString();
 
   for (let i = 0; i < 10; i++) {
     let regex = new RegExp(`^${i}{${length}}$`, "g");
@@ -34,7 +34,7 @@ Utils.checkNumberRepetition = (value, length = 11) => {
  * @returns {String}
  */
 Utils.paddedZeroes = (value, length = 11, to_right = false) => {
-  if (typeof(value) === number) value = value.toString();
+  if (typeof(value) === "number") value = value.toString();
 
   if (value.length < (length || 11)) {
     while (value.length < (length || 11)) {
@@ -56,7 +56,7 @@ Utils.paddedZeroes = (value, length = 11, to_right = false) => {
  * @returns {String|Boolean}
  */
 Utils.sanitizeToDigitsOnly = (value) => {
-  if (typeof(value) === number) value = value.toString();
+  if (typeof(value) === "number") value = value.toString();
 
   if (value === null || value === undefined || value.trim() === "") return false;
 

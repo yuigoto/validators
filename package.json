@@ -1,6 +1,6 @@
 {
   "name": "@yuigoto/validators",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple string validation library.",
   "main": "dist/index.js",
   "publishConfig": {
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-test": "babel --version",
     "transpile": "babel src -d dist",
     "prepublishOnly": "npm run transpile"
   },

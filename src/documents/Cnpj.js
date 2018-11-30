@@ -45,7 +45,7 @@ Cnpj.validate = (cnpj) => {
   if (cnpj.length < 14) cnpj = Utils.paddedZeroes(cnpj, 14);
 
   // Check repetition
-  if (!Utils.checkNumberRepetition(cnpj, 11)) return false;
+  if (!Utils.checkNumberRepetition(cnpj, 14)) return false;
 
   let sum, val;
 

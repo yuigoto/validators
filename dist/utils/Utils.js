@@ -5,10 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-require("core-js/modules/es7.symbol.async-iterator");
-
-require("core-js/modules/es6.symbol");
-
 require("core-js/modules/es6.regexp.replace");
 
 require("core-js/modules/es6.regexp.match");
@@ -16,8 +12,6 @@ require("core-js/modules/es6.regexp.match");
 require("core-js/modules/es6.regexp.constructor");
 
 require("core-js/modules/es6.regexp.to-string");
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /**
  * Utils/Utils
@@ -36,7 +30,7 @@ var Utils = {};
 
 Utils.checkNumberRepetition = function (value) {
   var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 11;
-  if (_typeof(value) === number) value = value.toString();
+  if (typeof value === "number") value = value.toString();
 
   for (var i = 0; i < 10; i++) {
     var regex = new RegExp("^".concat(i, "{").concat(length, "}$"), "g");
@@ -58,7 +52,7 @@ Utils.checkNumberRepetition = function (value) {
 Utils.paddedZeroes = function (value) {
   var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 11;
   var to_right = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  if (_typeof(value) === number) value = value.toString();
+  if (typeof value === "number") value = value.toString();
 
   if (value.length < (length || 11)) {
     while (value.length < (length || 11)) {
@@ -81,7 +75,7 @@ Utils.paddedZeroes = function (value) {
 
 
 Utils.sanitizeToDigitsOnly = function (value) {
-  if (_typeof(value) === number) value = value.toString();
+  if (typeof value === "number") value = value.toString();
   if (value === null || value === undefined || value.trim() === "") return false;
   value = value.replace(/\D/g, '');
   return value;

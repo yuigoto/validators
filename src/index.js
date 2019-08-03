@@ -1,17 +1,6 @@
-import { Cnpj } from "./document/Cnpj";
-import { Cpf } from "./document/Cpf";
-import { Pis } from "./document/Pis";
+export { Cnpj } from "./document/Cnpj";
+export { Cpf } from "./document/Cpf";
+export { Pis } from "./document/Pis";
 
-import { Email } from "./general/Email";
-import { CreditCard } from "./general/CreditCard";
-
-export const document = {
-  Cnpj,
-  Cpf,
-  Pis
-};
-
-export const general = {
-  CreditCard, 
-  Email
-};
+export { Email } from "./general/Email";
+export { CreditCard } from "./general/CreditCard";

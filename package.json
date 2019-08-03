@@ -1,37 +1,37 @@
 {
   "name": "@yuigoto/validators",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Simple string validation library.",
   "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "babel-test": "babel --version",
-    "transpile": "babel src -d dist",
-    "prepublishOnly": "npm run transpile"
+    "build": "webpack --mode production",
+    "test": "nodemon --exec mocha"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yuigoto/validators.git"
   },
   "keywords": [],
-  "author": "Fabio Y. Goto <lab@yuiti.com.br>",
+  "author": "Fabio Y. Goto <lab@yuiti.dev>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yuigoto/validators/issues"
   },
   "homepage": "https://github.com/yuigoto/validators#readme",
-  "dependencies": {
-    "core-js": "^2.5.7"
-  },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-module-resolver": "^3.1.1"
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
   }
 }

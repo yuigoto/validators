@@ -1,36 +1,26 @@
+import { Email as EmailRegex } from "../utils/Expressions";
+
 /**
  * General/Email
  * ----------------------------------------------------------------------
- * Generic e-mail string validation.
- *
- * TODO: see if it's possible to test for MX records/server so we can see
- * if the e-mail's domain is valid.
- *
- * @author    Fabio Y. Goto <lab@yuiti.com.br>
+ * Simple e-mail address string validation class.
+ * 
+ * @author    Fabio Y. Goto <lab@yuiti.dev>
  * @since     0.0.1
  */
-const Email = {};
-
-/**
- * Validates an e-mail address string, but doesn't validate MX records.
- *
- * @param {String} email
- * @return {Boolean}
- */
-Email.validateAddress = (email) => {
-  if (null === email || undefined === email) return false;
-
-  email = email.trim("");
-
-  if (email === "") return false;
-
-  let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,9})$/;
-
-  if (email.match !== null && email.match !== undefined) {
-    return true;
+export class Email {
+  /**
+   * Simple validation for an e-mail address string using regular expressions, 
+   * with no MX validation.
+   * 
+   * @param {String} address 
+   *     E-mail address to compare and validate
+   * @returns {Boolean}
+   */
+  static validateAddress (address) {
+    if (typeof address !== "string") return false;
+    address = address.trim();
+    if (address === "") return false;
+    return EmailRegex.test(address);
   }
-
-  return false;
-};
-
-export default Email;
+}

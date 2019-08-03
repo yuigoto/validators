@@ -1,9 +1,15 @@
 @yuigoto/validators
 ===================
 
-> Just a simple string validation library. No docs or proper `README` for now,
-> will do so in the near future (at least I hope).
+> Simple string validation library for personal projects.
+
+Provides simple validation for:
+- Some Brazilian documents (CPF, CNPJ, PIS);
+- E-mail addresses;
+- Credit card numbers;
+
+> _No documentation yet. Read the code for some JSDocs._
 
 -----
 
-_©2018 Fabio Y. Goto_
+_©2019 Fabio Y. Goto_

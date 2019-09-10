@@ -1,22 +1,20 @@
-import { Url as UrlRegex } from "../utils/Expressions";
+import { Url as UrlRegex } from "../../utils/Expressions";
 
 /**
- * General/Url
+ * Validators/General/Url
  * ----------------------------------------------------------------------
  * Simple URL string validation class.
- * 
- * @author    Fabio Y. Goto <lab@yuiti.dev>
- * @since     0.0.1
+ *
+ * @since 0.5.0
  */
 export class Url {
   /**
    * Simple validation for URL strings with regular expressions.
    * 
-   * @param {String} url 
+   * @param url 
    *     URL to test 
-   * @returns {Boolean}
    */
-  static validate (url) {
+  static validate (url: string): boolean {
     if (typeof url !== "string") return false;
     url = url.trim();
     if (url === "") return false;

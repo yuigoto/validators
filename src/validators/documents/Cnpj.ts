@@ -1,30 +1,28 @@
-import { Utils } from "../utils/Utils";
-import { Cnpj as CnpjRegex } from "../utils/Expressions";
+import { Utils } from "../../utils/Utils";
+import { Cnpj as CnpjRegex } from "../../utils/Expressions";
 
 /**
- * Document/Cnpj
+ * Validators/Documents/Cnpj
  * ----------------------------------------------------------------------
  * Provides validation and formatting for the Brazilian Legal Entity Registry 
  * number (CNPJ).
  *
- * @author    Fabio Y. Goto <lab@yuiti.dev>
- * @since     0.0.1
+ * @since 0.5.0
  */
 export class Cnpj {
   /**
    * Formats the value against the matching RegExp. If it doesn't match, returns 
    * boolean `false`.
    * 
-   * @param {String|Number} input 
+   * @param input 
    *     Value to format 
-   * @returns {String|Boolean} 
    */
-  static format (input) {
+  static format (input: any): string|boolean {
     input = Cnpj.sanitize(input);
     if (!input) return false;
 
     if (input.length > 14) input = input.substring(0, 14);
-    if (input.length < 14) input = Utils.paddingWithZeroes(input, 14);
+    if (input.length < 14) input = Utils.padWithZeroes(input, 14);
 
     return input.replace(
       CnpjRegex,
@@ -35,24 +33,24 @@ export class Cnpj {
   /**
    * Validates the value using the standard validation algorithm provided.
    * 
-   * @param {String|Number} input 
+   * @param input 
    *     Value to format 
-   * @returns {Boolean} 
    */
-  static validate (input) {
+  static validate (input: any): boolean {
     input = Cnpj.sanitize(input);
     if (input === false) return false;
 
     if (input.length > 14) input = input.substring(0, 14);
-    if (input.length < 14) input = Utils.paddingWithZeroes(input, 14);
+    if (input.length < 14) input = Utils.padWithZeroes(input, 14);
 
     if (Utils.checkNumberRepetition(input, 14)) return false;
 
-    let sum, val;
+    let sum: number, 
+        val: number;
 
     sum = 0;
     val = 5;
-    for (var l = 0; l < 12; l++) {
+    for (let l: number = 0; l < 12; l++) {
       sum += parseInt(input[l]) * val;
       val = ((val - 1) === 1) ? 9 : val - 1;
     }
@@ -61,7 +59,7 @@ export class Cnpj {
 
     sum = 0;
     val = 6;
-    for (var l = 0; l < 13; l++) {
+    for (let l: number = 0; l < 13; l++) {
       sum += parseInt(input[l]) * val;
       val = ((val - 1) === 1) ? 9 : val - 1;
     }
@@ -74,12 +72,11 @@ export class Cnpj {
   /**
    * Sanitizes value, making sure it's always a proper string.
    * 
-   * @param {String|Number} input 
+   * @param input 
    *     Value to sanitize
-   * @returns {String|Boolean}
    */
-  static sanitize (input) {
-    input = Utils.assertInputIsString(input, true);
+  static sanitize (input: any): string|boolean {
+    input = Utils.assertIsString(input, true);
     if (input === false) return false;
     
     input = Utils.sanitizeToDigits(input);

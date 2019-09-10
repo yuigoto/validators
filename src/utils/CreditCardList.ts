@@ -1,13 +1,6 @@
-/**
- * Utils/CreditCardType
- * ----------------------------------------------------------------------
- * Contains a list of credit card flag names, slugs and patterns used for 
- * validation.
- *
- * @author    Fabio Y. Goto <lab@yuiti.dev>
- * @since     0.0.1
- */
-export const CreditCardType = {
+import { CreditCardCollection } from "./Types";
+
+export const CreditCardList: CreditCardCollection  = {
   AMEX: {
     name: "American Express",
     slug: "amex",

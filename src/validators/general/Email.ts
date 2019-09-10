@@ -1,23 +1,21 @@
-import { Email as EmailRegex } from "../utils/Expressions";
+import { Email as EmailRegex } from "../../utils/Expressions";
 
 /**
- * General/Email
+ * Validators/General/Email
  * ----------------------------------------------------------------------
  * Simple e-mail address string validation class.
- * 
- * @author    Fabio Y. Goto <lab@yuiti.dev>
- * @since     0.0.1
+ *
+ * @since 0.5.0
  */
 export class Email {
   /**
    * Simple validation for an e-mail address string using regular expressions, 
    * with no MX validation.
    * 
-   * @param {String} address 
+   * @param address 
    *     E-mail address to compare and validate
-   * @returns {Boolean}
    */
-  static validateAddress (address) {
+  static validateAddress (address: string): boolean {
     if (typeof address !== "string") return false;
     address = address.trim();
     if (address === "") return false;

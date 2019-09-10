@@ -1,6 +1,12 @@
 Changelog
 =========
 
+### 0.3.0
+
+_10/Sep/2019_
+
+- Moved to TypeScript.
+
 ### 0.1.0
 
 _03/Aug/2019_

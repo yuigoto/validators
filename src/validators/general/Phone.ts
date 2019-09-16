@@ -22,7 +22,7 @@ export class Phone {
     input = Phone.sanitize(input);
     if (!input) return "";
 
-    if (input.length > 8) input = input.substring(0, 8);
+    if (input.length > 12) input = input.substring(0, 12);
 
     let slices = PhoneMask.exec(input),
         returnable = "";

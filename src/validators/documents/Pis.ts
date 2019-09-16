@@ -1,5 +1,8 @@
 import { Utils } from "../../utils/Utils";
-import { Pis as PisRegex } from "../../utils/Expressions";
+import { 
+  Pis as PisRegex,
+  PisMask
+} from "../../utils/Expressions";
 
 /**
  * Validators/Documents/Pis
@@ -28,6 +31,31 @@ export class Pis {
       PisRegex,
       "$1.$2.$3-$4"
     );
+  }
+
+  /**
+   * Provides some basic input masking.
+   * 
+   * @param input 
+   *     Value to filter 
+   */
+  static filter (input: any): string {
+    input = Pis.sanitize(input);
+    if (!input) return "";
+
+    if (input.length > 11) input = input.substring(0, 11);
+
+    let slices = PisMask.exec(input),
+        returnable = "";
+    
+    if (slices[1] === undefined) return "";
+
+    returnable += slices[1];
+    if (slices[2] !== undefined) returnable += "." + slices[2];
+    if (slices[3] !== undefined) returnable += "." + slices[3];
+    if (slices[4] !== undefined) returnable += "-" + slices[4];
+
+    return returnable;
   }
 
   /**

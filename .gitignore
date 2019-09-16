@@ -17,6 +17,7 @@ test/
 
 # PRODUCTION
 build/
+dist/
 
 # PACKAGE LOCK FILES
 package-lock.json

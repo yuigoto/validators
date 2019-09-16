@@ -14,5 +14,7 @@ export {
   Pis,
   Email,
   CreditCard,
-  Url
+  Url,
+  Cep,
+  Phone
 };

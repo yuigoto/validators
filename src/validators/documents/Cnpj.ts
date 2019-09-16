@@ -1,5 +1,8 @@
 import { Utils } from "../../utils/Utils";
-import { Cnpj as CnpjRegex } from "../../utils/Expressions";
+import { 
+  Cnpj as CnpjRegex,
+  CnpjMask
+} from "../../utils/Expressions";
 
 /**
  * Validators/Documents/Cnpj
@@ -28,6 +31,32 @@ export class Cnpj {
       CnpjRegex,
       "$1.$2.$3/$4-$5"
     );
+  }
+
+  /**
+   * Provides some basic input masking.
+   * 
+   * @param input 
+   *     Value to filter 
+   */
+  static filter (input: any): string {
+    input = Cnpj.sanitize(input);
+    if (!input) return "";
+
+    if (input.length > 14) input = input.substring(0, 14);
+
+    let slices = CnpjMask.exec(input),
+        returnable = "";
+    
+    if (slices[1] === undefined) return "";
+
+    returnable += slices[1];
+    if (slices[2] !== undefined) returnable += "." + slices[2];
+    if (slices[3] !== undefined) returnable += "." + slices[3];
+    if (slices[4] !== undefined) returnable += "/" + slices[4];
+    if (slices[5] !== undefined) returnable += "-" + slices[5];
+
+    return returnable;
   }
 
   /**

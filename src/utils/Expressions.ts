@@ -7,9 +7,34 @@
  */
 
 /**
+ * Brazilian phone number regular expression.
+ */
+export const Phone: RegExp = /^(\d{2})(\d{4})-?(\d{4,5})/;
+
+/**
+ * Brazilian phone number mask RegExp.
+ */
+export const PhoneMask: RegExp = /^(\d{1,2})(\d{1,4})?(\d{1,5})?/;
+
+/**
+ * Brazilian ZIP code.
+ */
+export const Cep: RegExp = /^(\d{5})-?(\d{3})/;
+
+/**
+ * Brazilian ZIP code input mask RegExp.
+ */
+export const CepMask: RegExp = /^(\d{1,5})(\d{1,3})?/;
+
+/**
  * Brazilian natural person registry number (CPF).
  */
 export const Cpf: RegExp = /^(\d{3})(\.?\d{3})(\.?\d{3})-?(\d{2})$/;
+
+/**
+ * Used to provide input masking for CPF inputs.
+ */
+export const CpfMask: RegExp = /^(\d{1,3})(\d{1,3})?(\d{1,3})?(\d{1,2})?$/;
 
 /**
  * Brazilian legal entity registry number (CNPJ).
@@ -17,10 +42,19 @@ export const Cpf: RegExp = /^(\d{3})(\.?\d{3})(\.?\d{3})-?(\d{2})$/;
 export const Cnpj: RegExp = /^(\d{2})(\.?\d{3})(\.?\d{3})\/?(\d{4})-?(\d{2})$/;
 
 /**
- * Brazilian Social Integration Program (PIS) number.
+ * Used to provide input masking for CNPJ inputs.
+ */
+export const CnpjMask: RegExp = /^(\d{1,2})(\d{1,3})?(\d{1,3})?(\d{1,4})?(\d{1,2})?/;
 
+/**
+ * Brazilian Social Integration Program (PIS) number.
  */
 export const Pis: RegExp = /^(\d{2})(\.?\d{5})(\.?\d{3})-?(\d{1})$/;
+
+/**
+ * Used to provide input masking for PIS inputs.
+ */
+export const PisMask: RegExp = /^(\d{1,2})(\d{1,5})?(\d{1,3})?(\d{1})?$/;
 
 /**
  * UUID/GUID, might work for MD5 hashes too.

@@ -14,7 +14,7 @@ export const Phone: RegExp = /^(\d{2})(\d{4})-?(\d{4,5})/;
 /**
  * Brazilian phone number mask RegExp.
  */
-export const PhoneMask: RegExp = /^(\d{1,2})(\d{1,4})?(\d{1,5})?/;
+export const PhoneMask: RegExp = /^(\d{1,2})(\d{1,4})?(\d{1,5})?(.*)?/;
 
 /**
  * Brazilian ZIP code.

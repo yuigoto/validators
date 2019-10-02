@@ -1,6 +1,7 @@
 import {
   Phone as PhoneRegex,
-  PhoneMask
+  PhoneMask,
+  PhoneMaskCell
 } from "../../utils/Expressions";
 import { Utils } from "../../utils/Utils";
 
@@ -24,8 +25,16 @@ export class Phone {
 
     if (input.length > 12) input = input.substring(0, 12);
 
-    let slices = PhoneMask.exec(input),
-        returnable = "";
+    let slices,
+        returnable;
+
+    if (input.length === 10) {
+      slices = PhoneMask.exec(input);
+    } else {
+      slices = PhoneMaskCell.exec(input);
+    }
+
+    returnable = "";
     
     if (slices[1] === undefined) return "";
 

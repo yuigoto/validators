@@ -14,7 +14,12 @@ export const Phone: RegExp = /^(\d{2})(\d{4})-?(\d{4,5})/;
 /**
  * Brazilian phone number mask RegExp.
  */
-export const PhoneMask: RegExp = /^(\d{1,2})(\d{1,4})?(\d{1,5})?(.*)?/;
+export const PhoneMask: RegExp = /^(\d{1,2})(\d{1,4})?(\d{1,4})?(.*)?/;
+
+/**
+ * Brazilian cellphone number mask RegExp.
+ */
+export const PhoneMaskCell: RegExp = /^(\d{1,2})(\d{1,5})?(\d{1,4})?(.*)?/;
 
 /**
  * Brazilian ZIP code.
@@ -65,6 +70,16 @@ export const Uuid: RegExp = /^\{?([a-f0-9]{8})(-?[a-f0-9]{4}){3}(-?[a-f0-9]{12})
  * E-mail addresses.
  */
 export const Email: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})/;
+
+/**
+ * Regular DD/MM/YYYY date string.
+ */
+export const RegularDate: RegExp = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+
+/**
+ * Regular DD/MM/YYYY date mask string.
+ */
+export const RegularDateMask: RegExp = /^([0-9]{1,2})([0-9]{1,2})?([0-9]{1,4})?$/;
 
 /**
  * ISO date string.

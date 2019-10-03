@@ -69,7 +69,7 @@ export const Uuid: RegExp = /^\{?([a-f0-9]{8})(-?[a-f0-9]{4}){3}(-?[a-f0-9]{12})
 /**
  * E-mail addresses.
  */
-export const Email: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,10})/;
+export const Email: RegExp = /^\w+([^@]+)*@\w+([\.-]?\w+)*(\.\w{2,10})/;
 
 /**
  * Regular DD/MM/YYYY date string.

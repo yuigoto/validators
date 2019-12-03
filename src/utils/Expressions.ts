@@ -74,7 +74,7 @@ export const Email: RegExp = /^\w+([^@]+)*@\w+([\.-]?\w+)*(\.\w{2,10})/;
 /**
  * Regular DD/MM/YYYY date string.
  */
-export const RegularDate: RegExp = /^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+export const RegularDate: RegExp = /^([0-9]{2})\/?([0-9]{2})\/?([0-9]{4})$/;
 
 /**
  * Regular DD/MM/YYYY date mask string.

@@ -7,6 +7,7 @@ import { CreditCard } from "./validators/general/CreditCard";
 import { Url } from "./validators/general/Url";
 import { Cep } from "./validators/general/Cep";
 import { Phone } from "./validators/general/Phone";
+import { DateString } from "./validators/general/DateString";
 
 export {
   Cpf,
@@ -16,5 +17,6 @@ export {
   CreditCard,
   Url,
   Cep,
-  Phone
+  Phone,
+  DateString
 };

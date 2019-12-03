@@ -71,17 +71,13 @@ export class DateString {
         day = parseInt(slices[1]),
         month = parseInt(slices[2]),
         year = parseInt(slices[3]);
-
-    console.log("YA");
     
     if (day < 1 || day > 31 || month < 1 || month > 12 || year < 1900) {
       return false;
     }
 
     let dateToCompare = new Date(year, month - 1, day);
-
-    console.log(dateToCompare.toLocaleDateString("pt-BR"));
-
+    
     if (
       DateString.filter(input) !== dateToCompare.toLocaleDateString("pt-BR")
     ) {

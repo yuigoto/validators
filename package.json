@@ -1,6 +1,6 @@
 {
   "name": "@yuigoto/validators",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "Simple string validation library.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

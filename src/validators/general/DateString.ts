@@ -43,7 +43,7 @@ export class DateString {
 
     if (input.length > 8) input = input.substring(0, 8);
 
-    let slices = DateRegex.exec(input),
+    let slices = RegularDateMask.exec(input),
         returnable = "";
     
     if (slices[1] === undefined) return "";

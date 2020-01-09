@@ -1,6 +1,13 @@
-import { CreditCardCollection } from "./Types";
+import { CreditCardCollection } from "../core/Types";
 
-export const CreditCardList: CreditCardCollection  = {
+/**
+ * utils/CreditCardList
+ * ----------------------------------------------------------------------
+ * Provides a list of flag names, slugs and patterns to match credit card numbers.
+ * 
+ * @since   0.5.0
+ */
+export const CreditCardList: CreditCardCollection = {
   AMEX: {
     name: "American Express",
     slug: "amex",

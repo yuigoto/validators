@@ -1,22 +1,45 @@
-import { Cpf } from "./validators/documents/Cpf";
-import { Cnpj } from "./validators/documents/Cnpj";
-import { Pis } from "./validators/documents/Pis";
+import { Cep } from "./validators/Cep";
+import { Cnpj } from "./validators/Cnpj";
+import { Cpf } from "./validators/Cpf";
+import { CreditCard } from "./validators/CreditCard";
+import { DateString } from "./validators/DateString";
+import { Email } from "./validators/Email";
+import { Phone } from "./validators/Phone";
+import { Pis } from "./validators/Pis";
+import { Url } from "./validators/Url";
 
-import { Email } from "./validators/general/Email";
-import { CreditCard } from "./validators/general/CreditCard";
-import { Url } from "./validators/general/Url";
-import { Cep } from "./validators/general/Cep";
-import { Phone } from "./validators/general/Phone";
-import { DateString } from "./validators/general/DateString";
-
+/**
+ * Provides simple validators, mostly used for brazilian documents and strings.
+ * 
+ * @since     0.5.0
+ */
 export {
-  Cpf,
-  Cnpj,
-  Pis,
-  Email,
-  CreditCard,
-  Url,
-  Cep,
-  Phone,
-  DateString
+  Cep, 
+  Cnpj, 
+  Cpf, 
+  CreditCard, 
+  DateString, 
+  Email, 
+  Phone, 
+  Pis, 
+  Url
+};
+
+/**
+ * @yuigoto/validators
+ * ----------------------------------------------------------------------
+ * Provides simple validators, mostly used for brazilian documents and strings.
+ * 
+ * @version   0.5.0
+ */
+export default {
+  Cep, 
+  Cnpj, 
+  Cpf, 
+  CreditCard, 
+  DateString, 
+  Email, 
+  Phone, 
+  Pis, 
+  Url
 };

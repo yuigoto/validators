@@ -4,7 +4,7 @@
     "removeComments": true,
     "baseUrl": "./",
     "lib": [
-      "es5",
+      "es6",
       "dom",
       "es2015.core"
     ],
@@ -19,9 +19,10 @@
     "traceResolution": false
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }

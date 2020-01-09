@@ -1,7 +1,7 @@
 {
   "name": "@yuigoto/validators",
-  "version": "0.4.9",
-  "description": "Simple string validation library.",
+  "version": "0.5.0",
+  "description": "Provides simple string validation helpers, mostly for brazilian documents and strings.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "publishConfig": {
@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "test": "tsc --watch"
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "dev": "nodemon --exec npm run test"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,12 @@
   },
   "homepage": "https://github.com/yuigoto/validators#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.0",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.5.4",
     "typescript": "^3.6.2"
   }
 }

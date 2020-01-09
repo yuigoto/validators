@@ -1,6 +1,13 @@
 Changelog
 =========
 
+### 0.5.0
+
+_09/Jan/2020)
+
+- Reviewed everything.
+- Added the worst TDD ever.
+
 ### 0.3.0
 
 _10/Sep/2019_

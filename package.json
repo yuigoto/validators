@@ -1,6 +1,6 @@
 {
   "name": "@yuigoto/validators",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Provides simple string validation helpers, mostly for brazilian documents and strings.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

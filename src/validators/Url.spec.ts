@@ -8,6 +8,25 @@ describe("URL", () => {
     done();
   });
 
+  it("Should validate localhost", (done) => {
+    let urlList = [
+      "http://localhost",
+      "https://localhost",
+      "http://localhost/",
+      "https://localhost/",
+      "http://localhost:8080",
+      "https://localhost:8086",
+      "http://localhost:8086/",
+      "https://localhost:8086/"
+    ];
+
+    for (let url of urlList) {
+      expect(Url.validate(url)).to.be.a("boolean").equals(true);
+    }
+
+    done();
+  });
+
   it("Should validate 'valid' URL strings", (done) => {
     let urlList = [
       "http://foo.com/blah_blah",

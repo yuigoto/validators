@@ -20,6 +20,11 @@ export class Url {
     if (typeof value !== "string") return false;
     value = value.trim();
     if (value === "") return false;
+
+    if (/^(?:(?:(?:https?|ftp):)?\/\/)(localhost)(\:[\d]+)?\/?$/.test(value)) {
+      return true;
+    }
+
     return UrlRegex.test(value);
   }
 }

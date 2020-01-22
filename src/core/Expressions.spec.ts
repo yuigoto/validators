@@ -59,7 +59,7 @@ describe("Expressions", () => {
       let phone = "(11) 1234-5678",
           match = PhoneMask.exec(phone.trim());
 
-      expect(match).to.be.an("array").lengthOf(4);
+      expect(match).to.be.an("array").lengthOf(5);
       expect(match[1]).to.be.a("string").equals("11");
       expect(match[2]).to.be.a("string").equals("1234");
       expect(match[3]).to.be.a("string").equals("5678");
@@ -71,7 +71,7 @@ describe("Expressions", () => {
       let cellphone = "(11) 12345-6789",
           match = PhoneMaskCell.exec(cellphone.trim());
 
-      expect(match).to.be.an("array").lengthOf(4);
+      expect(match).to.be.an("array").lengthOf(5);
       expect(match[1]).to.be.a("string").equals("11");
       expect(match[2]).to.be.a("string").equals("12345");
       expect(match[3]).to.be.a("string").equals("6789");
@@ -121,7 +121,7 @@ describe("Expressions", () => {
       let cpf = "123.456.789-01",
           match = CpfMask.exec(cpf.trim());
 
-      expect(match).to.be.an("array").lengthOf(5);
+      expect(match).to.be.an("array").lengthOf(6);
       expect(match[1]).to.be.a("string").equals("123");
       expect(match[2]).to.be.a("string").equals("456");
       expect(match[3]).to.be.a("string").equals("789");
@@ -141,7 +141,7 @@ describe("Expressions", () => {
       let cnpj = "01.234.567/8901-23",
           match = CnpjMask.exec(cnpj.trim());
 
-      expect(match).to.be.an("array").lengthOf(6);
+      expect(match).to.be.an("array").lengthOf(7);
       expect(match[1]).to.be.a("string").equals("01");
       expect(match[2]).to.be.a("string").equals("234");
       expect(match[3]).to.be.a("string").equals("567");
@@ -162,7 +162,7 @@ describe("Expressions", () => {
       let pis = "12.34567.890-1",
           match = PisMask.exec(pis.trim());
 
-      expect(match).to.be.an("array").lengthOf(5);
+      expect(match).to.be.an("array").lengthOf(6);
       expect(match[1]).to.be.a("string").equals("12");
       expect(match[2]).to.be.a("string").equals("34567");
       expect(match[3]).to.be.a("string").equals("890");
@@ -228,7 +228,7 @@ describe("Expressions", () => {
       let date = "21/10/1954",
           match = RegularDateMask.exec(date);
 
-      expect(match).to.be.an("array").lengthOf(4);
+      expect(match).to.be.an("array").lengthOf(5);
       expect(match[1]).to.be.a("string").equals("21");
       expect(match[2]).to.be.a("string").equals("10");
       expect(match[3]).to.be.a("string").equals("1954");

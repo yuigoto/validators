@@ -89,6 +89,13 @@ describe("CPF", () => {
     done();
   });
 
+  it("Should not validate incomplete numbers or pad with zeroes", (done) => {
+    expect(Cpf.validate("713.480.270-1")).to.be.a("boolean").equals(false);
+    expect(Cpf.validate("1289466009")).to.be.a("boolean").equals(false);
+    
+    done();
+  });
+
   it("Should format the number and match the proper pattern", (done) => {
     for (let n = 0; n < 10; n++) {
       let _cpf:string = generateRandom();

@@ -71,10 +71,7 @@ export class Cpf {
   public static validate (value: any): boolean {
     value = SanitizeToDigitsWithAssertion(value);
     if (value === false) return false;
-
-    if (value.length > 11) value = value.substring(0, 11);
-    if (value.length < 11) value = PadWithZeroes(value, 11);
-
+    if (value.length > 11) return false;
     if (CheckNumberRepetition(value, 11)) return false;
 
     let sum: number, 

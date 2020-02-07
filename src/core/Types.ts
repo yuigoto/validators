@@ -11,11 +11,18 @@
  * - A human-readable name for the flag;
  * - URL-safe, unique, slug;
  * - A RegExp pattern to validate it;
+ * 
+ * Optionally you may include:
+ * - A groupPattern you can use to filter/mask the card, can also be used to 
+ * validate the mask;
+ * - A `mask` to validate masked credit card values;
  */
 export type CreditCardItem = {
   name: string,
   slug: string,
-  pattern: RegExp
+  pattern: RegExp,
+  groupPattern?: RegExp,
+  mask?: RegExp
 };
 
 /**

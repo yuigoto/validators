@@ -18,6 +18,116 @@ export class CreditCard {
   public static MODULO: Array<number> = [0, 2, 4, 6, 8, 1, 3, 5, 7, 9];
 
   /**
+   * Checks and returns the credit card flag name.
+   * 
+   * @param {any} value 
+   *     Credit card number 
+   */
+  public static getCardFlagName (value: any): string {
+    value = SanitizeToDigitsWithAssertion(value);
+    if (!value) return "";
+
+    let keys: Array<string> = Object.keys(CreditCardList);
+
+    for (let i in keys) {
+      let key: string = keys[i];
+      let card: CreditCardItem = CreditCardList[key];
+
+      if (card.pattern.test(value)) return card.name;
+    }
+
+    return "";
+  }
+
+  /**
+   * Filters the input value according to the mask pattern on the credit card 
+   * declared in the object.
+   * 
+   * @param value 
+   *     Number to filter 
+   */
+  public static filter (value: any): string {
+    if (!CreditCard.validateFlag(value)) return value;
+
+    value = SanitizeToDigitsWithAssertion(value);
+    if (!value) return "";
+
+    let keys: Array<string> = Object.keys(CreditCardList);
+
+    for (let i in keys) {
+      let key: string = keys[i],
+          card: CreditCardItem = CreditCardList[key],
+          valid: boolean = card.pattern.test(value), 
+          slices: string[] = card.groupPattern.exec(value),
+          returnable: Array<string> = [];
+
+      if (valid && slices[1] !== undefined) {
+        for (let s = 1; s < slices.length; s++) {
+          if (slices[s] !== undefined) {
+            returnable.push(slices[s]);
+          }
+        }
+
+        if (returnable.length > 0) return returnable.join("-");
+      }
+    }
+
+    return value;
+  }
+
+  /**
+   * Formats the card number with `filter`, used as alias to avoid unnecessary 
+   * expressions.
+   * 
+   * @param value 
+   *     Card number to format 
+   */
+  public static format (value: any): string {
+    return CreditCard.filter(value);
+  }
+
+  /**
+   * Masks all segments from a credit card number, save for the first.
+   * 
+   * @param value 
+   *     Card number to mask 
+   * @param maskWith 
+   *     Optional, defined which value to use when masking, by default we 
+   *     use `x` 
+   */
+  public static mask (value: any, maskWith: string = "x"): string {
+    if (!CreditCard.validateFlag(value)) return value;
+
+    value = SanitizeToDigitsWithAssertion(value);
+    if (!value) return "";
+
+    let keys: Array<string> = Object.keys(CreditCardList);
+
+    for (let i in keys) {
+      let key: string = keys[i],
+          card: CreditCardItem = CreditCardList[key],
+          slices = card.groupPattern.exec(value),
+          returnable: Array<string> = [];
+
+      if (slices[1] !== undefined) {
+        for (let s = 1; s < slices.length; s++) {
+          if (slices[s] !== undefined) {
+            if (s > 1) {
+              returnable.push(slices[s].replace(/\d/g, maskWith));
+            } else {
+              returnable.push(slices[s]);
+            }
+          }
+        }
+        
+        if (returnable.length > 0) return returnable.join("-");
+      }
+    }
+
+    return value;
+  }
+
+  /**
    * Validates the digit of the credit card number using Luhn's algorithm.
    * 
    * @param value 

@@ -69,9 +69,10 @@ export class CreditCard {
    *     Number to filter 
    */
   public static filter (value: any): string {
-    if (!CreditCard.validateFlag(value)) return value;
-
     value = SanitizeToDigitsWithAssertion(value);
+    
+    if (!CreditCard.validateFlag(value)) return value;
+    
     if (!value) return "";
 
     let keys: Array<string> = Object.keys(CreditCardList);
@@ -157,6 +158,7 @@ export class CreditCard {
    */
   public static validateDigit (value: any): boolean {
     value = SanitizeToDigitsWithAssertion(value);
+    
     if (!value) return false;
 
     let exploded: string[] = value.trim().split(""),

@@ -90,7 +90,7 @@ export class CreditCard {
           }
         }
 
-        if (returnable.length > 0) return returnable.join("-");
+        if (returnable.length > 0) return returnable.join(" ");
       }
     }
 

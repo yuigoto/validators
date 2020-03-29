@@ -38,6 +38,28 @@ export class CreditCard {
 
     return "";
   }
+  
+  /**
+   * Checks and returns the credit card slug.
+   * 
+   * @param {any} value 
+   *     Credit card number 
+   */
+  public static getCardFlagSlug (value: any): string {
+    value = SanitizeToDigitsWithAssertion(value);
+    if (!value) return "";
+
+    let keys: Array<string> = Object.keys(CreditCardList);
+
+    for (let i in keys) {
+      let key: string = keys[i];
+      let card: CreditCardItem = CreditCardList[key];
+
+      if (card.pattern.test(value)) return card.slug;
+    }
+
+    return "";
+  }
 
   /**
    * Filters the input value according to the mask pattern on the credit card 

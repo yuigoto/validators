@@ -52,6 +52,19 @@ const TestCard: TestCardList = {
   }
 };
 
+const InvalidCards: string[] = [
+  "0000000000000000",
+  "1111111111",
+  "22222222222",
+  "333333333333333333333",
+  "444444444444444444",
+  "55555555555555",
+  "66666666666",
+  "77777777777777777777",
+  "888888888888888888",
+  "99999999999999999"
+];
+
 describe("CreditCard", () => {
   it("Should declare the 'validateDigit' method", (done) => {
     expect(CreditCard).to.have.property("validateDigit").to.be.a("function");
@@ -88,7 +101,7 @@ describe("CreditCard", () => {
     done();
   });
 
-  it("Must predeclare the 'MODULO' array, based on the '((n * 2 > 9) ? (n * 2) - 9 : n * 2)' pattern", done => {
+  it("Must predeclare the 'MODULO' array, based on the '((n * 2 > 9) ? (n * 2) - 9 : n * 2)' pattern", (done) => {
     for (let n = 0; n < 10; n++) {
       let value = (n === 0) ? 0 : n * 2;
       value = (value > 9) ? value - 9 : value;
@@ -102,10 +115,26 @@ describe("CreditCard", () => {
   describe("Test Credit Cards", () => {
     let keys: string[] = Object.keys(TestCard);
 
+    it("Sequences of the same digit should validate to `false`", (done) => {
+      for (let n = 0; n < InvalidCards.length; n++) {
+        expect(CreditCard.validateSequence(InvalidCards[n]))
+          .to.be.a("boolean").equal(false);
+      }
+
+      done();
+    });
+
     for (let key of keys) {
       let card: TestCardItem = TestCard[key];
 
       describe(key, () => {
+        it("Should validate to `true` against repetitions", (done) => {
+          expect(CreditCard.validateSequence(card.number))
+            .to.be.a("boolean").equal(true);
+
+          done();
+        });
+
         it(`Should validate '${card.slug}' flag`, (done) => {
           expect(CreditCard.validateFlag(card.number))
             .to.be.a("string").equals(card.slug);

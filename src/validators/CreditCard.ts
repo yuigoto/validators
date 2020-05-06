@@ -1,4 +1,4 @@
-import { SanitizeToDigitsWithAssertion } from "../utils/Utils";
+import { SanitizeToDigitsWithAssertion, CheckNumberRepetition } from "../utils/Utils";
 import { CreditCardList } from "../utils/CreditCardList";
 import { CreditCardItem } from "../core/Types";
 
@@ -224,5 +224,21 @@ export class CreditCard {
     }
 
     return (sum % 10 === 0);
+  }
+
+  /**
+   * Validates a number comprised of only repeated digits.
+   * 
+   * Returns `false` if the sequence is invalid (comprised of only one type 
+   * of digit).
+   *  
+   * @param value 
+   *     Card number to test 
+   */
+  public static validateSequence (value: any): boolean {
+    value = SanitizeToDigitsWithAssertion(value);
+    if (!value) return false;
+    let len: number = value.length;
+    return !CheckNumberRepetition(value, len);
   }
 }

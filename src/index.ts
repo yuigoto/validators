@@ -1,1 +1,1 @@
-import { CreditCardList } from "./core/CreditCardList";
+export default {};

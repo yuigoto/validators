@@ -1,7 +1,18 @@
-import { HashMap } from "../type/HashMap";
-import { CreditCardListItem } from "../type/CreditCardListItem";
+import { CreditCardCollection } from "reviuew/interface/CreditCardCollection";
+import {HashMap} from "reviuew/type/HashMap";
+import {CreditCardItem} from "reviuew/type/CreditCardItem";
 
-export const CreditCardList: HashMap<CreditCardListItem> = {
+/**
+ * core/CreditCardList
+ * ----------------------------------------------------------------------
+ * Provides a list of credit card flag names, slugs and `RegExp` patterns 
+ * used to validate, match and mask credit card numbers.
+ * 
+ * Does not aim to provide an absolute list.
+ * 
+ * @since 0.6.0
+ */
+export const CreditCardList: HashMap<CreditCardItem> = {
   AMEX: {
     name: "American Express",
     slug: "amex",

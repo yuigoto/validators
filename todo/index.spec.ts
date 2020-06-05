@@ -1,6 +1,6 @@
 import "mocha";
 import { expect } from "chai";
-import validators from "./index";
+import validators from "../reviuew";
 
 describe("@yuigoto/validators", () => {
   it("Should export the 'Cep' validator helper", (done) => {
